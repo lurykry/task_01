@@ -8,7 +8,6 @@ import org.hibernate.annotations.TypeDefs;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -17,8 +16,12 @@ import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-
-
+/**
+ * A parent entity, allowing for polymorphism and containing auditing information.
+ * {@link edu.parammanagment.parammanagment.domain.core.AbstractEntity#uuid} is an identifier used to identify a concrete entity.
+ * @author Kirill Mansurov
+ * @version 1.0
+ */
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @TypeDefs({

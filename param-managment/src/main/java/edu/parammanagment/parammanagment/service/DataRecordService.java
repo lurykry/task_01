@@ -14,6 +14,10 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * @author Kirill Mansurov
+ * @version 1.0
+ */
 @Service
 public class DataRecordService extends AbstractServiceImpl<DataRecord, DataRecordRepository> {
 
@@ -47,8 +51,8 @@ public class DataRecordService extends AbstractServiceImpl<DataRecord, DataRecor
 
         boolean isRelevantDataUpdated = isRelevantDataUpdated(entity, relevantData);
         if(!isRelevantDataUpdated)
-            ((RelevantDataService)relevantDataService).updateRelevantData(entity.getRecordDate(),
-                    entity.getParameterTypeAndValue(), relevantDataUUID);
+            ((RelevantDataService)relevantDataService).updateRelevantData(relevantDataUUID, entity.getRecordDate(),
+                    entity.getParameterTypeAndValue());
 
         entity.setParameter(parameter);
         entity.setRelevantData(relevantData);

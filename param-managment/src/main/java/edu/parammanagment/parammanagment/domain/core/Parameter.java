@@ -12,6 +12,11 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * Unit of measurement.
+ * @author Kirill Mansurov
+ * @version 1.0
+ */
 @Table(name = "parameter")
 @Entity
 @AttributeOverrides(

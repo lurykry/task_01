@@ -11,6 +11,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * Generic service-layer abstract class, defining some of shared method.
+ * @param <E> is an entity, extending {@link AbstractEntity}.
+ * @param <R> is a repository, extending {@link AbstractRepository}.
+ * @author Kirill Mansurov
+ * @version 1.0
+ */
 @Transactional
 public abstract class AbstractServiceImpl<E extends AbstractEntity, R extends AbstractRepository<E>> implements AbstractService<E>{
 
@@ -45,5 +52,10 @@ public abstract class AbstractServiceImpl<E extends AbstractEntity, R extends Ab
     @Override
     public Page<E> findAll(Pageable pageable) {
         return repository.findAll(pageable);
+    }
+
+    @Override
+    public void deleteById(UUID id){
+        repository.deleteById(id);
     }
 }

@@ -8,6 +8,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+/**
+ * Aspect to log post-controllers' args.
+ * @author Kirill Mansurov
+ * @version 1.0
+ */
 @Component
 @Aspect
 public class LoggingAspect {

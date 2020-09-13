@@ -12,6 +12,11 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.time.LocalDateTime;
 
+/**
+ * Handles  {@link ModelNotFoundException} and  {@link InvalidURIInputException} exceptions.
+ * @author Kirill Mansurov
+ * @version 1.0
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 

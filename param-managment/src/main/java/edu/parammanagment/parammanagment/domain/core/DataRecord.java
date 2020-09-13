@@ -10,6 +10,11 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+/**
+ * A single record, containing info about {@link Parameter} for a particular moment in time.
+ * @author Kirill Mansurov
+ * @version 1.0
+ */
 @Table(name = "data_history")
 @Entity
 @AttributeOverrides(

@@ -23,10 +23,10 @@ public interface ParameterModelMapper extends ModelMapper<Parameter, ParameterMo
 
     @AfterMapping
     default void addLinks(@MappingTarget ParameterModel model, Parameter entity) {
-        Link selfLink = linkTo(methodOn(ParameterController.class).getParameter(entity.getUuid()))
+        Link selfLink = linkTo(methodOn(ParameterController.class).get(entity.getUuid()))
                 .withSelfRel();
         Link relevantDataLink = linkTo(methodOn(RelevantDataController.class)
-                .getRelevantData(entity.getRelevantData().getUuid()))
+                .get(entity.getRelevantData().getUuid()))
                 .withRel("relevant_data");
             model.add(selfLink, relevantDataLink);
     }

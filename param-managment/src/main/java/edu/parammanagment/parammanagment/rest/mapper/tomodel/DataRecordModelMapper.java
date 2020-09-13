@@ -27,11 +27,11 @@ public interface DataRecordModelMapper extends ModelMapper<DataRecord, DataRecor
 
     @AfterMapping
     default void addLinks(@MappingTarget DataRecordModel model, DataRecord entity) {
-        Link selfLink = linkTo(methodOn(DataRecordController.class).getRecord(entity.getUuid()))
+        Link selfLink = linkTo(methodOn(DataRecordController.class).get(entity.getUuid()))
                 .withSelfRel();
-        Link paramLink = linkTo(methodOn(ParameterController.class).getParameter(entity.getParameter().getUuid()))
+        Link paramLink = linkTo(methodOn(ParameterController.class).get(entity.getParameter().getUuid()))
                 .withRel("parameter");
-        Link relevantDataLink = linkTo(methodOn(RelevantDataController.class).getRelevantData(entity.getRelevantData().getUuid()))
+        Link relevantDataLink = linkTo(methodOn(RelevantDataController.class).get(entity.getRelevantData().getUuid()))
                 .withRel("relevant data");
         model.add(selfLink, paramLink, relevantDataLink);
     }

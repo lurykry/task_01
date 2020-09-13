@@ -1,6 +1,5 @@
 package edu.parammanagment.parammanagment.rest.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import edu.parammanagment.parammanagment.domain.helpers.ParameterTypeAndValue;

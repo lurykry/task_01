@@ -8,6 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * @author Kirill Mansurov
+ * @version 1.0
+ */
 @Repository
 public interface ParameterRepository extends AbstractRepository<Parameter> {
 

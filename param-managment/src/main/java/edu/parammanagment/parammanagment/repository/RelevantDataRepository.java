@@ -11,6 +11,10 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * @author Kirill Mansurov
+ * @version 1.0
+ */
 @Repository
 public interface RelevantDataRepository extends AbstractRepository<RelevantData> {
 
@@ -20,7 +24,6 @@ public interface RelevantDataRepository extends AbstractRepository<RelevantData>
     @Modifying
     @Query(value = "UPDATE RelevantData c SET c.recordDate = :recordDate ," +
             " c.parameterTypeAndValue = :parameterTypeAndValue where c.uuid = :uuid")
-    void updateRelevantData(@Param("recordDate")LocalDateTime recordDate,
-                            @Param("parameterTypeAndValue")ParameterTypeAndValue parameterTypeAndValue,
-                            @Param("uuid") UUID uuid);
+    void updateRelevantData(@Param("uuid") UUID uuid, @Param("recordDate") LocalDateTime recordDate,
+                            @Param("parameterTypeAndValue") ParameterTypeAndValue parameterTypeAndValue);
 }

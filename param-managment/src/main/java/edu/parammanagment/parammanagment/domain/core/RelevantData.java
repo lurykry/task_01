@@ -1,7 +1,6 @@
 package edu.parammanagment.parammanagment.domain.core;
 
 import edu.parammanagment.parammanagment.domain.helpers.ParameterTypeAndValue;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
@@ -14,6 +13,11 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * A single record, containing relevant and up-to-date info about {@link Parameter}.
+ * @author Kirill Mansurov
+ * @version 1.0
+ */
 @Table(name = "relevant_data")
 @Entity
 @AttributeOverrides(

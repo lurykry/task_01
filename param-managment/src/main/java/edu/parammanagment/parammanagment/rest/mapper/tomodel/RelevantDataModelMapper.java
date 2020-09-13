@@ -26,12 +26,12 @@ public interface RelevantDataModelMapper extends ModelMapper<RelevantData, Relev
 
     @AfterMapping
     default void addLinks(@MappingTarget RelevantDataModel model, RelevantData entity) {
-        Link selfLink = linkTo(methodOn(RelevantDataController.class).getRelevantData(entity.getUuid()))
+        Link selfLink = linkTo(methodOn(RelevantDataController.class).get(entity.getUuid()))
                 .withSelfRel();
-        Link paramLink = linkTo(methodOn(ParameterController.class).getParameter(entity.getParameter().getUuid()))
+        Link paramLink = linkTo(methodOn(ParameterController.class).get(entity.getParameter().getUuid()))
                 .withRel("parameter");
         entity.getDataRecords().forEach(
-                record -> model.add(linkTo(methodOn(DataRecordController.class).getRecord(record.getUuid()))
+                record -> model.add(linkTo(methodOn(DataRecordController.class).get(record.getUuid()))
                         .withRel("records"))
         );
         model.add(selfLink, paramLink);

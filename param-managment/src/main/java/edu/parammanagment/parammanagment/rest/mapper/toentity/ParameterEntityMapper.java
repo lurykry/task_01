@@ -12,6 +12,7 @@ public interface ParameterEntityMapper extends EntityMapper<ParameterModel, Para
 
     ParameterEntityMapper INSTANCE = Mappers.getMapper(ParameterEntityMapper.class);
 
+    @Mapping(target = "relevantData", ignore = true)
     Parameter map(ParameterModel parameterModel);
 
 }

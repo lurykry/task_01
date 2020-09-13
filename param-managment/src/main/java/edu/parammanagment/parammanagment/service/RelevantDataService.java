@@ -16,6 +16,10 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * @author Kirill Mansurov
+ * @version 1.0
+ */
 @Service
 public class RelevantDataService extends AbstractServiceImpl<RelevantData, RelevantDataRepository> {
 
@@ -29,7 +33,7 @@ public class RelevantDataService extends AbstractServiceImpl<RelevantData, Relev
 
     @Override
     public void save(RelevantData entity, String... refs) {
-        if(refs.length != 1 || refs[0] == null ||refs[0].equals(""))
+        if(refs.length != 1 || refs[0] == null || refs[0].equals(""))
             throw new InvalidURIInputException(String.format("invalid uri: %s", refs[0]));
 
         UUID paramUUID = UUID.fromString(UUIDExtractor.extractUUID(refs[0]).orElseThrow(() ->
@@ -43,7 +47,7 @@ public class RelevantDataService extends AbstractServiceImpl<RelevantData, Relev
     }
 
     @Transactional
-    public void updateRelevantData(LocalDateTime recordDate, ParameterTypeAndValue parameterTypeAndValue, UUID uuid){
-        repository.updateRelevantData(recordDate, parameterTypeAndValue, uuid);
+    public void updateRelevantData(UUID uuid, LocalDateTime recordDate, ParameterTypeAndValue parameterTypeAndValue){
+        repository.updateRelevantData(uuid, recordDate, parameterTypeAndValue);
     }
 }
